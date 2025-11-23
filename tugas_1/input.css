@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Kita tambahkan satu 'component' kustom untuk 'active link' di navigasi.
+  Ini lebih bersih daripada menambahkan 3-4 kelas utilitas via JavaScript.
+*/
+@layer components {
+  .nav-active {
+    @apply bg-ios-secondary text-white shadow-md;
+  }
+}
+
+/* Base styling untuk <html> */
+html {
+  scroll-behavior: smooth;
+  /* TAMBAHKAN BARIS INI: */
+  scroll-padding-top: 110px; /* Sesuaikan tinggi header agar judul tidak ketutup */
+  /* ------------------- */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

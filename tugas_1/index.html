@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page_title">Desa Wisata - Memuat...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/index.js"></script>
+</head>
+<body class="select-none bg-ios-bg-light dark:bg-ios-bg-dark text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-ios-card-dark/80 backdrop-blur-md shadow-sm dark:border-b dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <div>
+                    <h1 id="main_title" class="text-xl font-extrabold tracking-tight text-ios-primary dark:text-white">Memuat...</h1>
+                    <p id="main_subtitle" class="text-xs text-gray-500 dark:text-gray-400">Memuat...</p>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"></button>
+                    <a href="#pemesanan" class="px-4 py-2 bg-ios-primary text-white text-sm font-medium rounded-lg shadow-sm hover:bg-blue-600 transition">Pesan Tiket</a>
+                </div>
+                <div class="md:hidden flex items-center space-x-2">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full text-gray-600 dark:text-gray-300"></button>
+                    <button id="menu-toggle" class="p-2 rounded-md text-gray-600 dark:text-gray-300">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav id="nav-menu" class="hidden md:block border-t border-gray-200 dark:border-gray-700">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+                <ul id="nav-links" class="flex flex-col md:flex-row md:justify-center md:space-x-1 space-y-1 md:space-y-0 text-sm font-medium">
+                    <li><a href="#beranda" class="nav-link block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Beranda</a></li>
+                    <li><a href="#about" class="nav-link block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">About</a></li>
+                    <li><a href="#fasilitas" class="nav-link block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Fasilitas</a></li>
+                    <li><a href="#paket" class="nav-link block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Paket Wisata</a></li>
+                    <li><a href="#pemesanan" class="nav-link block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Pemesanan</a></li>
+                    <li><a href="#galeri" class="nav-link block px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">Galeri</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+<section id="beranda" class="relative h-[400px] md:h-[500px] w-full overflow-hidden">
+    
+    <div id="hero-slider" class="absolute inset-0">
+        <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-100" 
+             style="background-image: url('img/cireme.jpg');">
+        </div>
+        
+        <div class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" 
+             style="background-image: url('img/murjay.jpg');">
+        </div>
+    </div>
+
+    <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center z-10">
+        <h2 class="text-4xl md:text-6xl font-extrabold text-white tracking-tighter style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
+            Pesona Wisata Majalengka
+        </h2>
+       <h3 id="hero_subtitle" class="text-xl md:text-3xl font-medium text-gray-200 mt-2" style="text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+         Memuat...
+       </h3>
+    </div>
+</section>
+
+        <section id="paket" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <h2 class="text-2xl font-bold tracking-tight mb-6">Daftar Paket Wisata</h2>
+                    <div id="paket-wisata-container" class="space-y-6">
+                        <p class="text-gray-500">Memuat paket wisata...</p>
+                    </div>
+                </div>
+                <aside class="lg:col-span-1 lg:sticky lg:top-36 h-fit">
+                    <div class="bg-ios-card-light dark:bg-ios-card-dark rounded-2xl shadow-lg p-5">
+                        <h3 class="text-lg font-bold mb-4">🎬 Video Promosi</h3>
+                        <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border dark:border-gray-700">
+                        <iframe 
+    src="https://www.youtube.com/embed/TUQBJqa_3m0" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    class="w-full h-full"
+    allowfullscreen>
+</iframe>
+                        </div>
+                        <p id="video_caption" class="text-sm text-gray-600 dark:text-gray-400 mt-3 text-center">Memuat...</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+       <section id="about" class="max-w-7xl mx-auto p-6 py-16 scroll-mt-24">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        <div class="space-y-6 animate-fade-in-up">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                Harmoni Alam di Kaki <span class="text-ios-primary">Atap Jawa Barat</span>
+            </h2>
+            
+            <div class="w-20 h-1.5 bg-ios-secondary rounded-full"></div> <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Selamat datang di <span class="font-semibold text-gray-900 dark:text-white">Desa Argapura</span>, sebuah surga tersembunyi di mana hijaunya terasering memeluk gagahnya <strong>Gunung Ciremai</strong>. Kami bukan sekadar destinasi, tapi sebuah pengalaman yang menyentuh jiwa.
+            </p>
+            
+            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                Rasakan dinginnya kabut pagi yang menyapa kulit, dan biarkan gemuruh <strong>Curug Muara Jaya</strong> menghapus penat Anda. Di sini, alam tidak hanya dipandang, tapi dirasakan. Mari pulang ke alam, mari bertualang di Argapura Majalengka.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 pt-4">
+                <div>
+                    <p class="text-2xl font-bold text-ios-primary">3078 <span class="text-sm font-normal text-gray-500">mdpl</span></p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Ketinggian Ciremai</p>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold text-ios-primary">2 <span class="text-sm font-normal text-gray-500">Tingkat</span></p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Keindahan Curug</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative h-80 md:h-[500px] rounded-3xl overflow-hidden shadow-2xl group cursor-pointer">
+            <img src="img/cireme.jpg" 
+                 alt="Keindahan Argapura Majalengka" 
+                 class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700 ease-in-out">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            
+            <div class="absolute bottom-8 left-8 text-white transform translate-y-2 group-hover:translate-y-0 transition duration-500">
+                <p class="font-bold text-2xl mb-1">Pesona Argapura</p>
+                <p class="text-sm opacity-90 font-light flex items-center">
+                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Majalengka, Jawa Barat
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+        
+<section id="fasilitas" class="max-w-7xl mx-auto p-6 py-16 scroll-mt-24 bg-gray-50 dark:bg-black/20 rounded-3xl my-10">
+    
+    <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
+            Fasilitas Lengkap & Nyaman
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Kami memastikan kenyamanan Anda selama berwisata di Argapura dengan fasilitas yang memadai di setiap destinasi.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="bg-ios-card-light dark:bg-ios-card-dark rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center mb-6">
+                <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-2xl text-green-600 dark:text-green-400 mr-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Basecamp Ciremai</h3>
+            </div>
+            
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-ios-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <div>
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">Paket Makan Lengkap</span>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Disediakan saat akan naik (sebelum pendakian) dan setelah turun gunung.</p>
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-ios-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    <div>
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">Area Parkir Luas</span>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Tersedia untuk Mobil & Motor dengan keamanan terjaga.</p>
+                    </div>
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-6 h-6 text-ios-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                    <span class="font-semibold text-gray-800 dark:text-gray-200">Toilet / WC Bersih</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-ios-card-light dark:bg-ios-card-dark rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700">
+            <div class="flex items-center mb-6">
+                <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl text-blue-600 dark:text-blue-400 mr-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Curug Muara Jaya</h3>
+            </div>
+
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-ios-secondary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <div>
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">Dokumentasi Unlimited</span>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Puas berfoto dengan pemandangan curug yang indah.</p>
+                    </div>
+                </li>
+                <li class="flex items-start">
+                    <svg class="w-6 h-6 text-ios-secondary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <div>
+                        <span class="font-semibold text-gray-800 dark:text-gray-200">Bebas Biaya Parkir</span>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Parkir Mobil & Motor tersedia dan gratis.</p>
+                    </div>
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-6 h-6 text-ios-secondary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z"></path></svg>
+                    <span class="font-semibold text-gray-800 dark:text-gray-200">Termasuk 1x Makan</span>
+                </li>
+                <li class="flex items-center">
+                    <svg class="w-6 h-6 text-ios-secondary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <span class="font-semibold text-gray-800 dark:text-gray-200">Toilet Umum</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+       <section id="pemesanan" class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+            <h2 class="text-2xl font-bold tracking-tight mb-6">Formulir Pemesanan Tiket</h2>
+            <div class="bg-ios-card-light dark:bg-ios-card-dark rounded-2xl shadow-lg p-6 md:p-8 max-w-3xl mx-auto">
+                <form id="booking-form" class="space-y-6">
+                    <div>
+    <label for="form-paket" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Pilih Paket Wisata</label>
+    <select id="form-paket" name="nama_paket" required
+            class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 shadow-sm focus:border-ios-primary focus:ring focus:ring-ios-primary focus:ring-opacity-50 text-gray-900 dark:text-white p-2.5">
+        <option value="" disabled selected>-- Pilih Paket --</option>
+        </select>
+                </div>
+                    <div>
+                        <label for="form-nama" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nama Lengkap</label>
+                        <input type="text" id="form-nama" name="nama" required 
+                               class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 shadow-sm focus:border-ios-primary focus:ring focus:ring-ios-primary focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="form-alamat" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Alamat</label>
+                        <textarea id="form-alamat" name="alamat" rows="3" required 
+                                  class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 shadow-sm focus:border-ios-primary focus:ring focus:ring-ios-primary focus:ring-opacity-50"></textarea>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:space-x-4 space-y-6 md:space-y-0">
+                        <div class="flex-1">
+                            <label for="form-wa" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nomor WhatsApp (cth: 0812...)</label>
+                            <input type="tel" id="form-wa" name="nomor_wa" required 
+                                   class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 shadow-sm focus:border-ios-primary focus:ring focus:ring-ios-primary focus:ring-opacity-50">
+                        </div>
+                        <div class="flex-1">
+                            <label for="form-jumlah" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Jumlah Orang</label>
+                            <input type="number" id="form-jumlah" name="jumlah_orang" min="1" required 
+                                   class="mt-1 block w-full rounded-lg border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 shadow-sm focus:border-ios-primary focus:ring focus:ring-ios-primary focus:ring-opacity-50">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="form-ktp" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Foto KTP (JPG/PNG, max 2MB)</label>
+                        <input type="file" id="form-ktp" name="ktp" accept="image/png, image/jpeg" required
+                               class="mt-1 block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-ios-primary/10 dark:file:bg-ios-primary/20 file:text-ios-primary hover:file:bg-ios-primary/20 dark:hover:file:bg-ios-primary/30">
+                    </div>
+                    <div>
+                        <label for="form-kk" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Foto KK (JPG/PNG, max 2MB)</label>
+                        <input type="file" id="form-kk" name="kk" accept="image/png, image/jpeg" required
+                               class="mt-1 block w-full text-sm text-gray-500 dark:text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-ios-primary/10 dark:file:bg-ios-primary/20 file:text-ios-primary hover:file:bg-ios-primary/20 dark:hover:file:bg-ios-primary/30">
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <input id="form-aturan" name="setuju_aturan" type="checkbox" required
+                                   class="h-5 w-5 rounded border-gray-300 text-ios-primary focus:ring-ios-primary">
+                            <label for="form-aturan" class="ml-3 text-sm text-gray-700 dark:text-gray-300">Saya telah menyetujui aturan lingkungan wisata.</label>
+                        </div>
+                        <div class="flex items-start">
+                            <input id="form-syarat" name="setuju_syarat" type="checkbox" required
+                                   class="h-5 w-5 rounded border-gray-300 text-ios-primary focus:ring-ios-primary">
+                            <label for="form-syarat" class="ml-3 text-sm text-gray-700 dark:text-gray-300">Saya telah memenuhi persyaratan untuk memasuki wisata.</label>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <button id="form-submit-button" type="submit" 
+                                class="w-full rounded-lg bg-ios-primary px-5 py-3 text-base font-medium text-white shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-ios-primary focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all disabled:opacity-50">
+                            Kirim Pemesanan
+                        </button>
+                        <p id="form-status" class="mt-4 text-center text-sm font-medium"></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+<section id="galeri" class="max-w-7xl mx-auto p-6 py-16 mb-10">
+    <div class="text-center mb-8">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+            Galeri Keindahan
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-2">Dokumentasi alam Argapura yang memukau</p>
+    </div>
+
+    <div class="relative w-full max-w-4xl mx-auto h-64 md:h-[500px] bg-gray-200 dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden group">
+        
+        <div id="gallery-track" class="flex h-full transition-transform duration-500 ease-out" style="transform: translateX(0%);">
+            
+            <div class="w-full h-full flex-shrink-0 relative">
+                <img src="img/cireme.jpg" alt="Gunung Ciremai" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                    <h3 class="text-xl font-bold">Gagahnya Gunung Ciremai</h3>
+                </div>
+            </div>
+
+            <div class="w-full h-full flex-shrink-0 relative">
+                <img src="img/murjay.jpg" alt="Curug Muara Jaya" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                    <h3 class="text-xl font-bold">Kesegaran Curug Muara Jaya</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <button id="prev-btn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/30 dark:bg-black/30 backdrop-blur-md text-white p-3 rounded-full hover:bg-white/50 transition shadow-lg focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+
+        <button id="next-btn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/30 dark:bg-black/30 backdrop-blur-md text-white p-3 rounded-full hover:bg-white/50 transition shadow-lg focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+
+    </div>
+</section>
+    </main>
+
+    <footer class="mt-16 py-10 bg-white dark:bg-ios-card-dark border-t dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500 dark:text-gray-400">&copy; 2025 Desa Wisata Argapura Majalengka.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+/* --- Global Styling (iOS/SF Pro Lookalike) --- */
+:root {
+    --color-primary: #007AFF; /* Warna Biru iOS */
+    --color-secondary: #FF9500; /* Warna Oranye untuk aksen */
+    --color-text-dark: #1C1C1E; /* Teks gelap (Dark Mode Base) */
+    --color-text-light: #FFFFFF; /* Teks terang */
+    --color-background-light: #F2F2F7; /* Background terang iOS */
+    --color-background-dark: #1C1C1E; /* Background gelap iOS */
+    --color-card-light: #FFFFFF; /* Card terang */
+    --color-card-dark: #2C2C2E; /* Card gelap */
+    --color-nav-light: rgba(255, 255, 255, 0.85); /* Nav transparan terang */
+    --color-nav-dark: rgba(44, 44, 46, 0.85); /* Nav transparan gelap */
+
+    --shadow-ios: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --radius-ios: 14px;
+}
+
+/* Default Light Mode */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: var(--color-background-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark Mode Adaptation (Sangat disarankan menggunakan media query untuk toggle otamatis) */
+/* @media (prefers-color-scheme: dark) { */
+/* body {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+}
+.header-top h1, .header-top p { color: var(--color-text-light); }
+.navbar { background-color: var(--color-nav-dark); border-bottom-color: rgba(255, 255, 255, 0.1); }
+.navbar a { color: var(--color-text-light); }
+.navbar a.active { background-color: var(--color-primary); color: var(--color-text-light); }
+.package-card { background-color: var(--color-card-dark); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); }
+.sidebar .video-widget { background-color: var(--color-card-dark); }
+.footer-ios { background-color: var(--color-card-dark); color: #AEAEB2; }
+} */
+
+/* --- Header dan Navigasi (Sticky & Frosted Glass) --- */
+.header-main {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    text-align: center;
+    padding: 15px 20px;
+    background-color: var(--color-background-light);
+}
+
+.header-top h1 {
+    font-size: 1.8em;
+    font-weight: 800;
+    letter-spacing: -0.5px; /* Khas tipografi iOS */
+    margin: 0;
+}
+
+.header-top p {
+    font-size: 0.9em;
+    color: #8E8E93; /* Warna abu-abu iOS */
+    margin: 5px 0 10px;
+}
+
+.search-box input {
+    padding: 8px 15px;
+    border-radius: var(--radius-ios);
+    border: 1px solid #D1D1D6;
+    background-color: #EFEFF4;
+    width: 250px;
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+}
+
+.navbar {
+    /* Frosted Glass Effect (iOS-like) */
+    background-color: var(--color-nav-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #E5E5EA;
+    padding: 10px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto; /* Untuk responsivitas menu yang panjang */
+    white-space: nowrap;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    padding: 0 8px;
+}
+
+.navbar a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-weight: 600;
+    font-size: 0.9em;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #E5E5EA;
+}
+
+.navbar a.active {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    box-shadow: var(--shadow-ios);
+}
+
+/* --- Hero/Banner Kolase Foto (Premium Look) --- */
+.hero-banner {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.image-collage {
+    /* Mengganti dengan placeholder gambar berkualitas tinggi */
+    background-image: url('https://picsum.photos/1600/600?random=3');
+    background-size: cover;
+    background-position: center 30%; /* Efek Parallax Ringan */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 50px;
+    color: var(--color-text-light);
+}
+
+.overlay h2 {
+    font-size: 3em;
+    font-weight: 900;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.overlay h3 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Area Konten Utama --- */
+main {
+    padding: 0 20px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.content-area {
+    display: flex;
+    gap: 30px;
+}
+
+.paket-wisata-list {
+    flex: 3;
+}
+
+.paket-wisata-list h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* Card Paket Wisata (iOS Card Style) */
+.package-card {
+    background-color: var(--color-card-light);
+    border-radius: var(--radius-ios);
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-ios);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.package-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.package-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 5px 0 10px;
+    line-height: 1.2;
+}
+
+.card-content .date {
+    font-size: 0.8em;
+    color: #8E8E93;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card-content .promo-info {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+/* Tombol Gaya iOS */
+.button-ios {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+}
+
+.button-ios:hover {
+    background-color: #0056B3;
+}
+
+
+/* --- Sidebar (Video Widget) --- */
+.sidebar {
+    flex: 1;
+    min-width: 300px;
+}
+
+.video-widget {
+    background-color: var(--color-card-light);
+    padding: 20px;
+    border-radius: var(--radius-ios);
+    box-shadow: var(--shadow-ios);
+    position: sticky;
+    top: 150px; /* Jarak dari atas saat sticky */
+}
+
+.video-widget h3 {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Rasio 16:9 */
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-caption {
+    font-size: 0.9em;
+    color: #8E8E93;
+    text-align: center;
+}
+
+/* --- Footer Gaya iOS Minimalis --- */
+.footer-ios {
+    text-align: center;
+    padding: 20px;
+    background-color: #EFEFF4;
+    color: #8E8E93;
+    font-size: 0.85em;
+    border-top: 1px solid #D1D1D6;
+    margin-top: 40px;
+}
+
+/* --- Responsiveness (Tablet dan Mobile) --- */
+@media (max-width: 1024px) {
+    .content-area {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        order: -1; /* Pindahkan video ke atas di tampilan mobile/tablet */
+        min-width: unset;
+        width: 100%;
+    }
+    
+    .video-widget {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .overlay {
+        padding-left: 20px;
+    }
+    
+    .overlay h2 {
+        font-size: 2.5em;
+    }
+    
+    .overlay h3 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top h1 {
+        font-size: 1.5em;
+    }
+    
+    .search-box {
+        display: none; /* Sembunyikan search di mobile untuk simplicity */
+    }
+
+    .navbar ul {
+        justify-content: flex-start;
+    }
+    
+    .navbar {
+        padding: 5px 0;
+    }
+
+    .navbar a {
+        padding: 6px 10px;
+        font-size: 0.85em;
+    }
+    
+    .hero-banner {
+        height: 250px;
+    }
+    
+    .overlay h2 {
+        font-size: 2em;
+    }
+    
+    .overlay h3 {
+        font-size: 1em;
+    }
+
+    main {
+        padding: 0 10px 20px;
+    }
+}
+
+/* Styling Dark Mode pada elemen card agar ada perbedaan di antara 2 contoh paket */
+.dark-mode-only {
+    /* Dalam Light Mode, ini akan terlihat seperti kartu default putih */
+    background-color: #F8F8F8; /* Sedikit off-white */
+}
+/* Jika mengaktifkan mode gelap:
+@media (prefers-color-scheme: dark) {
+    .dark-mode-only {
+        background-color: var(--color-card-dark);
+        color: var(--color-text-light);
+    }
+}
+*/

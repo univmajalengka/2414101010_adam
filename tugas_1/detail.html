@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="detail-page-title">Detail Paket - Desa Wisata</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/heroicons@2.1.3/24/outline/index.js"></script>
+</head>
+<body class="select-none bg-ios-bg-light dark:bg-ios-bg-dark text-gray-900 dark:text-gray-100 font-sans antialiased">
+
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-ios-card-dark/80 backdrop-blur-md shadow-sm dark:border-b dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-3">
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight text-ios-primary dark:text-white">DESA WISATA ARGAPURA</h1>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">Wisata Alam Majalengka</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"></button>
+                    <a href="index.html" class="text-sm font-medium text-gray-500 hover:text-ios-primary transition">Kembali ke Beranda</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+        
+        <div id="loading" class="text-center py-20">
+            <p class="text-lg text-gray-500 animate-pulse">Memuat detail paket...</p>
+        </div>
+
+        <div id="detail-content" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-10">
+            
+            <div class="space-y-4">
+                <div class="aspect-w-16 aspect-h-12 rounded-2xl overflow-hidden shadow-lg">
+                    <img id="detail-img" src="" alt="Detail Wisata" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center space-y-6">
+                <div>
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-white bg-ios-secondary rounded-full mb-2">Paket Wisata Pilihan</span>
+                    <h1 id="detail-title" class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                        </h1>
+                </div>
+
+                <div class="prose dark:prose-invert max-w-none">
+                    <p id="detail-desc" class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                        </p>
+                </div>
+
+                <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-1">Harga Mulai Dari</p>
+                    <p id="detail-price" class="text-3xl font-bold text-ios-primary">
+                        </p>
+                </div>
+
+                <div class="pt-4">
+                    <a href="index.html#pemesanan" class="block w-full text-center rounded-xl bg-ios-primary px-8 py-4 text-lg font-bold text-white shadow-lg hover:bg-blue-600 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all transform hover:-translate-y-1">
+                        Pesan Paket Ini Sekarang
+                    </a>
+                    <p class="text-xs text-center text-gray-400 mt-3">Termasuk asuransi & pemandu wisata profesional</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="mt-10 py-8 bg-white dark:bg-ios-card-dark border-t dark:border-gray-700 text-center">
+        <p class="text-sm text-gray-500 dark:text-gray-400">&copy; © 2025 Desa Wisata Argapura Majalengka.</p>
+    </footer>
+
+    <script src="detail.js"></script>
+</body>
+</html>
