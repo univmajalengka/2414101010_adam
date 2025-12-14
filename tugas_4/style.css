@@ -1,0 +1,435 @@
+/* Import Font mirip San Francisco (iOS Font) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+    /* --- TEMA TERANG (Default) --- */
+    --bg-color: #F0F4F8;
+    --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
+    --text-main: #1D1D1F;
+    --text-secondary: #86868B;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --card-border: rgba(255, 255, 255, 0.8);
+    --primary-blue: #007AFF;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --glass-blur: blur(20px);
+}
+
+/* --- TEMA GELAP (FIXED SELECTOR: Menggunakan Class) --- */
+body.dark-mode {
+    --bg-color: #000000;
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --text-main: #F5F5F7;
+    --text-secondary: #A1A1A6;
+    --card-bg: rgba(28, 28, 30, 0.75);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --primary-blue: #0A84FF;
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-main);
+    min-height: 100vh;
+    padding-bottom: 50px; /* Jarak aman scroll bawah */
+}
+
+/* --- GLASSPHORPHISM EFFECT --- */
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+/* --- NAVBAR --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 20px;
+    z-index: 100;
+    margin: 20px 20px 40px 20px; /* Margin biar ga nempel pinggir */
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transition: 0.2s;
+    font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--primary-blue);
+}
+
+/* Tombol Khusus (Logout/Masuk/Tambah) */
+a.nav-btn[style*="background"] {
+    transition: transform 0.2s;
+}
+a.nav-btn[style*="background"]:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* --- TOMBOL DARK MODE --- */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--text-main);
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+#theme-toggle:hover {
+    background: rgba(128, 128, 128, 0.2);
+    transform: rotate(15deg);
+}
+
+/* --- HERO SLIDER --- */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out, transform 6s ease;
+    z-index: -2;
+    transform: scale(1);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 60%, var(--bg-color) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 40px;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    color: rgba(255,255,255,0.9);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    font-weight: 500;
+}
+
+.btn-pesan {
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.4);
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-pesan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.6);
+}
+
+/* --- DAFTAR PAKET (GRID) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
+}
+
+.grid-paket {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.card-paket {
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-paket:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.card-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--card-border);
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.price {
+    font-weight: 800;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+}
+
+/* --- TABEL ADMIN (Fixed & Clean) --- */
+.table-wrapper {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Penting biar sudut tumpul ga bocor */
+    overflow-x: auto; /* Scroll HP */
+    margin-bottom: 50px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-main);
+}
+
+.custom-table thead {
+    background: rgba(0, 122, 255, 0.1);
+}
+
+.custom-table th {
+    padding: 18px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--primary-blue);
+    white-space: nowrap;
+}
+
+.custom-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--card-border);
+    font-size: 0.95rem;
+}
+
+.custom-table tbody tr:hover {
+    background-color: rgba(128, 128, 128, 0.05);
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badge System */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    background: rgba(0, 122, 255, 0.08);
+    color: var(--primary-blue);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border: 1px solid rgba(0, 122, 255, 0.2);
+}
+
+/* Action Buttons */
+.btn-action {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 1.1rem;
+}
+
+.btn-edit { background: rgba(255, 165, 0, 0.1); color: orange; border: 1px solid rgba(255, 165, 0, 0.2); }
+.btn-edit:hover { background: orange; color: white; }
+
+.btn-delete { background: rgba(255, 0, 0, 0.1); color: red; border: 1px solid rgba(255, 0, 0, 0.2); }
+.btn-delete:hover { background: red; color: white; }
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; letter-spacing: -1px; }
+    .hero-content p { font-size: 1rem; }
+    .hero-slider { height: 65vh; }
+    
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .container { padding-left: 15px; padding-right: 15px; }
+}
+
+/* --- FIX TOMBOL PESAN (GLOBAL) --- */
+.btn-pesan {
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    /* Gunakan display inline-flex agar teks selalu di tengah vertikal */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    /* PENTING: Mencegah teks turun baris (Wrapping) */
+    white-space: nowrap; 
+}
+
+/* --- 1. KHUSUS TOMBOL DI DALAM KARTU (UKURAN KECIL) --- */
+.card-footer .btn-pesan {
+    padding: 10px 24px;  /* Padding sedang */
+    font-size: 0.9rem;   /* Huruf tidak terlalu besar */
+    box-shadow: 0 4px 10px rgba(0, 122, 255, 0.2);
+    min-width: 120px;    /* Lebar minimal biar seragam */
+}
+
+.card-footer .btn-pesan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 122, 255, 0.3);
+}
+
+/* --- 2. KHUSUS TOMBOL DI HERO / JUMBOTRON (UKURAN BESAR) --- */
+.hero-content .btn-pesan {
+    padding: 18px 45px;  /* Padding besar biar gagah */
+    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.4);
+}
+
+.hero-content .btn-pesan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 122, 255, 0.6);
+}
+
+/* --- FIX POSISI FOOTER KARTU --- */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Pastikan Price & Tombol sejajar tengah */
+    border-top: 1px solid var(--card-border);
+    padding-top: 20px;
+    margin-top: auto;
+    gap: 15px; /* Jarak aman antara harga dan tombol */
+}
+
+.price {
+    font-size: 1.1rem; /* Ukuran harga pas */
+    font-weight: 800;
+    color: var(--primary-blue);
+    letter-spacing: -0.5px;
+}
